@@ -24,6 +24,14 @@ RUN apt-get install -y tvheadend
 # discover and config hdhomerun
 RUN echo "["$(hdhomerun_config discover | cut -d ' ' -f 3)"]" > /etc/dvbhdhomerun
 RUN echo "tuner_type=ATSC" >> /etc/dvbhdhomerun
+
+# Configure superuser
+# COPY superuser /home/hts/.hts/superuser
+RUN echo '{ "username" : "admin", "password" : "admin" }' > /home/hts/.hts/superuser
+RUN chown hts:hts /home/hts/.hts/superuser
+RUN chmod 600 /home/hts/.hts/superuser
 RUN service tvheadend restart
 
 EXPOSE 9981 9982
+
+CMD ["tvheadend"]
