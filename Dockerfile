@@ -6,7 +6,7 @@ RUN apt-get update
 RUN apt-get -y upgrade
 
 # Install software and repos
-RUN apt-get install -y git curl software-properties-common python-software-properties
+RUN apt-get install -y git curl software-properties-common python-software-properties debconf-utils
 RUN apt-get install -y dpkg-dev cmake dkms linux-headers-$(uname -r) build-essential module-assistant
 RUN apt-get install -y hdhomerun-config libhdhomerun-dev debhelper
 RUN curl http://apt.tvheadend.org/repo.gpg.key | sudo apt-key add -
@@ -24,6 +24,9 @@ RUN apt-get install -y tvheadend
 # discover and config hdhomerun
 RUN echo "["$(hdhomerun_config discover | cut -d ' ' -f 3)"]" > /etc/dvbhdhomerun
 RUN echo "tuner_type=ATSC" >> /etc/dvbhdhomerun
+
+RUN echo "tvheadend tvheadend/admin_password password 1234" | sudo debconf-set-selections
+RUN echo "tvheadend tvheadend/admin_username password string admin" | sudo debconf-set-selections
 
 RUN service tvheadend restart
 
