@@ -6,7 +6,7 @@ MAINTAINER Justin Garrison <justinleegarrison@gmail.com>
 
 # Install software and repos
 RUN apt-get update && apt-get install -m -y git curl software-properties-common python-software-properties debconf-utils\
-    dpkg-dev cmake dkms linux-headers-$(uname -r) build-essential module-assistant
+    dpkg-dev cmake dkms linux-headers-$(uname -r) build-essential module-assistant supervisor
 RUN apt-get install -y hdhomerun-config libhdhomerun-dev debhelper
 RUN curl http://apt.tvheadend.org/repo.gpg.key | sudo apt-key add -
 RUN echo "deb http://apt.tvheadend.org/stable trusty main" > /etc/apt/sources.list.d/tvheadend.list
@@ -24,9 +24,9 @@ RUN apt-get update && apt-get install -y tvheadend
 RUN echo "["$(hdhomerun_config discover | cut -d ' ' -f 3)"]" > /etc/dvbhdhomerun
 RUN echo "tuner_type=ATSC" >> /etc/dvbhdhomerun
 
-
-RUN service tvheadend restart
+RUN mkdir -p /var/log/supervisor 
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 EXPOSE 9981 9982
 
-CMD ["tvheadend"]
+CMD ["/usr/bin/supervisord"]
