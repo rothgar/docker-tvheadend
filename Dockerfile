@@ -19,6 +19,9 @@ RUN echo "tvheadend tvheadend/admin_password password 1234" | sudo debconf-set-s
 RUN echo "tvheadend tvheadend/admin_username string admin" | sudo debconf-set-selections
 RUN apt-get update && apt-get install -y tvheadend
 
+# Port for HDHR discovery
+EXPOSE 65001
+
 # Configure HDHomeRun
 # discover and config hdhomerun
 RUN echo "["$(hdhomerun_config discover | cut -d ' ' -f 3)"]" > /etc/dvbhdhomerun
@@ -27,6 +30,7 @@ RUN echo "tuner_type=ATSC" >> /etc/dvbhdhomerun
 RUN mkdir -p /var/log/supervisor 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+# Ports for Tvheadend service/web
 EXPOSE 9981 9982
 
 CMD ["/usr/bin/supervisord"]
