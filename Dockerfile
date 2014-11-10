@@ -24,7 +24,7 @@ EXPOSE 65001
 
 # Configure HDHomeRun
 # discover and config hdhomerun
-RUN echo "["$(hdhomerun_config discover | cut -d ' ' -f 3)"]" > /etc/dvbhdhomerun
+RUN echo "["$(hdhomerun_config discover | cut -d ' ' -f 3)"]" | sudo tee /etc/dvbhdhomerun
 RUN echo "tuner_type=ATSC" >> /etc/dvbhdhomerun
 
 RUN mkdir -p /var/log/supervisor 
