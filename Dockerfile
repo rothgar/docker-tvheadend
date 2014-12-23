@@ -30,4 +30,4 @@ RUN echo "tuner_type=ATSC" >> /etc/dvbhdhomerun
 # Ports for Tvheadend service/web
 EXPOSE 9981 9982
 
-CMD ["/usr/bin/tvheadend", "-u", "hts", "-C"]
+CMD ["/usr/bin/tvheadend", "-u", "hts", "-g", "video", "-C"]
