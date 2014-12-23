@@ -15,8 +15,6 @@ RUN apt-add-repository http://apt.tvheadend.org/stable
 RUN cd /usr/src && git clone https://github.com/h0tw1r3/dvbhdhomerun; \
     cd /usr/src/dvbhdhomerun && dpkg-buildpackage; \
     cd /usr/src; dpkg -i dvbhdhomerun-*.deb
-RUN echo "tvheadend tvheadend/admin_password password 1234" | sudo debconf-set-selections
-RUN echo "tvheadend tvheadend/admin_username string admin" | sudo debconf-set-selections
 RUN apt-get update && apt-get install -y tvheadend
 
 # Port for HDHR discovery
