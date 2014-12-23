@@ -27,10 +27,7 @@ EXPOSE 65001
 RUN echo "["$(hdhomerun_config discover | cut -d ' ' -f 3)"]" | sudo tee /etc/dvbhdhomerun
 RUN echo "tuner_type=ATSC" >> /etc/dvbhdhomerun
 
-RUN mkdir -p /var/log/supervisor 
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
 # Ports for Tvheadend service/web
 EXPOSE 9981 9982
 
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/tvheadend", "-u", "hts", "-C"]
