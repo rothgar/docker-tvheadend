@@ -26,3 +26,11 @@ You can set a password via the web interface but configuration is not saved unle
 ```
 docker run -d -p 9991:9991 -p 9981:9981 -v ${pwd}:/home/hts/.hts tvheadend
 ```
+
+## To Do
+
+These are some of the existing known issues. If you know a way to fix these, please send a pull request.
+
+ [] HDHR is not detected because detection is on a random UDP port. Need to figure out a way to specify an IP address and route all traffic to the container.
+ [] Set up shared storage for recordings
+ [] Password protect the admin pages
