@@ -17,15 +17,9 @@ RUN cd /usr/src && git clone https://github.com/h0tw1r3/dvbhdhomerun; \
     cd /usr/src; dpkg -i dvbhdhomerun-*.deb
 RUN apt-get update && apt-get install -y tvheadend
 
-# Port for HDHR discovery
-EXPOSE 65001
-
-# Configure HDHomeRun
-# discover and config hdhomerun
-RUN echo "["$(hdhomerun_config discover | cut -d ' ' -f 3)"]" | sudo tee /etc/dvbhdhomerun
-RUN echo "tuner_type=ATSC" >> /etc/dvbhdhomerun
-
 # Ports for Tvheadend service/web
 EXPOSE 9981 9982
 
-CMD ["/usr/bin/tvheadend", "-u", "hts", "-g", "video", "-C"]
+COPY start-hts.sh /scripts/start-hts.sh
+
+CMD ["/scripts/start-hts.sh"]
