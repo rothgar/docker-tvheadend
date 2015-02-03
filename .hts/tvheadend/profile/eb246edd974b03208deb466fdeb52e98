@@ -1,0 +1,17 @@
+{
+	"container": 2,
+	"resolution": 384,
+	"channels": 2,
+	"vcodec": "libx264",
+	"vbitrate": 0,
+	"acodec": "aac",
+	"abitrate": 0,
+	"class": "profile-transcode",
+	"enabled": true,
+	"default": false,
+	"name": "webtv-h264-aac-mpegts",
+	"comment": "WEBTV profile H264/AAC/MPEG-TS",
+	"timeout": 0,
+	"restart": false,
+	"shield": true
+}

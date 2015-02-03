@@ -1,0 +1,15 @@
+{
+	"enabled": false,
+	"maptoch": false,
+	"mapnolcn": false,
+	"mapnoname": false,
+	"mapradio": false,
+	"chtag": false,
+	"chtag_ref": "",
+	"name": "Skylink: Czech Republic",
+	"source": "dvb-fastscan://dvbs,23.5E,12070000,30",
+	"services": {
+	},
+	"services_seen": 0,
+	"lcn_off": 0
+}
