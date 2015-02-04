@@ -1,0 +1,15 @@
+{
+	"enabled": false,
+	"maptoch": false,
+	"mapnolcn": false,
+	"mapnoname": false,
+	"mapradio": false,
+	"chtag": false,
+	"chtag_ref": "",
+	"name": "TéléSAT",
+	"source": "dvb-fastscan://dvbs,19.2E,12515000,920",
+	"services": {
+	},
+	"services_seen": 0,
+	"lcn_off": 0
+}

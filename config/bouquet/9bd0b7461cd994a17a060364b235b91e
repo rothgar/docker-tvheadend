@@ -1,0 +1,15 @@
+{
+	"enabled": false,
+	"maptoch": false,
+	"mapnolcn": false,
+	"mapnoname": false,
+	"mapradio": false,
+	"chtag": false,
+	"chtag_ref": "",
+	"name": "Mobistar NL",
+	"source": "dvb-fastscan://dvbs,19.2E,12515000,930",
+	"services": {
+	},
+	"services_seen": 0,
+	"lcn_off": 0
+}

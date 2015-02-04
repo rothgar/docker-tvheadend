@@ -1,0 +1,34 @@
+{
+	"uuid": "2ec1fd857faf5d6868a03771140493fe",
+	"frontends": {
+		"ATSC #0": {
+			"enabled": false,
+			"priority": 0,
+			"spriority": 0,
+			"displayname": "HDHomeRun ATSC Tuner #0 (192.168.2.132)",
+			"ota_epg": true,
+			"initscan": true,
+			"idlescan": true,
+			"networks": [
+			],
+			"linked": "",
+			"type": "ATSC",
+			"uuid": "d7fa987b2526fdb79bbe1c5f164c57c5"
+		},
+		"ATSC #1": {
+			"enabled": false,
+			"priority": 0,
+			"spriority": 0,
+			"displayname": "HDHomeRun ATSC Tuner #1 (192.168.2.132)",
+			"ota_epg": true,
+			"initscan": true,
+			"idlescan": true,
+			"networks": [
+			],
+			"linked": "",
+			"type": "ATSC",
+			"uuid": "cc880e16930ad3cdea7254f2e74f906e"
+		}
+	},
+	"fe_override": "ATSC"
+}
