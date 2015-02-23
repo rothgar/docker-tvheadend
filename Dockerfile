@@ -8,7 +8,7 @@ RUN apt-get update && apt-get -y upgrade
 
 # Install software and repos
 RUN apt-get install -m -y wget git curl make dkms dpkg-dev \
-    debconf-utils software-properties-common linux-headers-$(uname -r) \
+    debconf-utils software-properties-common \
     build-essential hdhomerun-config libhdhomerun-dev debhelper libswscale-dev \
     libavahi-client-dev libavformat-dev libavcodec-dev liburiparser-dev \
     libssl-dev libiconv-hook1 libiconv-hook-dev
