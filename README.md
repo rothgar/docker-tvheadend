@@ -32,3 +32,7 @@ These are some of the existing known issues. If you know a way to fix these, ple
  - [ ] Password protect the admin pages
  - [ ] Configure guide data
  - [ ] Build with stable release tags
+
+## Issues
+
+Please report issues here on GitHub Issues.
